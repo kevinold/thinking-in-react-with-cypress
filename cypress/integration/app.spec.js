@@ -10,6 +10,10 @@ describe("Thinking In React", function() {
   });
 
   context("Product Table", function() {
+    it("renders the product table", function() {
+      cy.get("[data-cy='product-table']").should("be.visible");
+    });
+
     it("renders complete list of products", function() {
       cy.get("[data-cy='product-row']").should("have.length", 6);
     });
