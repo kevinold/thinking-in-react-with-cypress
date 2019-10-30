@@ -42,7 +42,7 @@ describe("Thinking In React", function() {
 
   context("SearchBar and Filter form", function() {
     it("renders a search box", function() {
-      cy.get("form input[type=text]");
+      cy.get("[data-cy='search']");
     });
 
     it("renders a checkbox filter", function() {
@@ -50,8 +50,8 @@ describe("Thinking In React", function() {
     });
 
     it("searches for a product", function() {
-      cy.get("form input[type=text]").type("Foot");
-      cy.get("table tbody").should("have.length", 1);
+      cy.get("[data-cy='search']").type("Foot");
+      cy.get("[data-cy='product-row']").should("have.length", 1);
     });
 
     it("displays products in stock", function() {
