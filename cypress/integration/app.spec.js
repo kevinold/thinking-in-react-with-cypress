@@ -36,7 +36,7 @@ describe("Thinking In React", function() {
         .eq(2)
         .get("span")
         .should("contain", "Basketball")
-        .and("have.attr", "style", "color: red;");
+        .and("have.css", "color", "rgb(255, 0, 0)");
     });
   });
 
