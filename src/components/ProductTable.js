@@ -31,7 +31,7 @@ class ProductTable extends Component {
     });
 
     return (
-      <table data-cy="product-table">
+      <table data-test="product-table">
         <thead>
           <tr>
             <th>Name</th>

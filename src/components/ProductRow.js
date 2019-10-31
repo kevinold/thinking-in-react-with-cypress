@@ -10,7 +10,7 @@ class ProductRow extends Component {
     );
 
     return (
-      <tr data-cy="product-row">
+      <tr data-test="product-row">
         <td>{name}</td>
         <td>{product.price}</td>
       </tr>

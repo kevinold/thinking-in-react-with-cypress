@@ -17,9 +17,9 @@ class SearchBar extends Component {
 
   render() {
     return (
-      <form data-cy="searchbar">
+      <form data-test="searchbar">
         <input
-          data-cy="search"
+          data-test="search"
           type="text"
           placeholder="Search..."
           value={this.props.filterText}
@@ -27,7 +27,7 @@ class SearchBar extends Component {
         />
         <p>
           <input
-            data-cy="in-stock-only"
+            data-test="in-stock-only"
             type="checkbox"
             checked={this.props.inStockOnly}
             onChange={this.handleInStockChange}
