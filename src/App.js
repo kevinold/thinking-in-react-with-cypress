@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useReducer } from "react";
 import FilterableProductTable from "./components/FilterableProductTable";
 import "./App.css";
 
@@ -12,10 +12,23 @@ const PRODUCTS = [
   {category: 'Electronics', price: '$199.99', stocked: true, name: 'Nexus 7'}
 ];
 
-class App extends Component {
-  render() {
-    return <FilterableProductTable products={PRODUCTS} />;
+const initialState = {
+  products: PRODUCTS
+};
+
+const reducer = (state, action) => {
+  switch (action) {
+    default:
+      return state;
   }
-}
+};
+
+const App = () => {
+  const [state] = useReducer(reducer, initialState);
+  if (window.Cypress) {
+    window.__app__ = state;
+  }
+  return <FilterableProductTable products={state.products} />;
+};
 
 export default App;

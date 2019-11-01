@@ -9,6 +9,13 @@ describe("Thinking In React", function() {
     cy.visit("/");
   });
 
+  it("has expected state on load", () => {
+    cy.window()
+      // @ts-ignore
+      .its("__app__")
+      .should("have.property", "products");
+  });
+
   context("Product Table", function() {
     it("renders the product table", function() {
       cy.get("[data-test='product-table']").should("be.visible");
