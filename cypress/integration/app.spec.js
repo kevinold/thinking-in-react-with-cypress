@@ -32,10 +32,8 @@ describe("Thinking In React", function() {
     });
 
     it("renders an out of stock product", function() {
-      cy.get("[data-test='product-row']")
-        .eq(2)
-        .get("span")
-        .should("contain", "Basketball")
+      cy.contains("[data-test='product-row']", "Basketball")
+        .should("be.visible")
         .and("have.css", "color", "rgb(255, 0, 0)");
     });
   });
