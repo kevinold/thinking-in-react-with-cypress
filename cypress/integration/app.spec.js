@@ -6,6 +6,7 @@
 
 describe("Thinking In React", function() {
   beforeEach(function() {
+    cy.fixture("products").as("PRODUCTS");
     cy.visit("/");
   });
 
@@ -15,7 +16,10 @@ describe("Thinking In React", function() {
     });
 
     it("renders complete list of products", function() {
-      cy.get("[data-test='product-row']").should("have.length", 6);
+      cy.get("[data-test='product-row']").should(
+        "have.length",
+        this.PRODUCTS.length
+      );
     });
 
     it("renders a product category", function() {
@@ -32,21 +36,13 @@ describe("Thinking In React", function() {
     });
 
     it("renders an out of stock product", function() {
-      cy.contains("[data-test='product-row']", "Basketball")
+      cy.contains("[data-test='product-row'] span", "Basketball")
         .should("be.visible")
         .and("have.css", "color", "rgb(255, 0, 0)");
     });
   });
 
   context("SearchBar and Filter form", function() {
-    it("renders a search box", function() {
-      cy.get("[data-test='search']");
-    });
-
-    it("renders a checkbox filter", function() {
-      cy.get("form input[type=checkbox]");
-    });
-
     it("searches for a product", function() {
       cy.get("[data-test='search']").type("Foot");
       cy.get("[data-test='product-row']").should("have.length", 1);
