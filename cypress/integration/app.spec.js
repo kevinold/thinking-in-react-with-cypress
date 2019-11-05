@@ -22,10 +22,12 @@ describe("Thinking In React", function() {
       );
     });
 
-    it("renders a product category", function() {
-      cy.get("[data-test='product-category']")
-        .first()
-        .should("contain", "Sporting Goods");
+    it("renders all product categories", function() {
+      ["Sporting Goods", "Electronics"].forEach(category =>
+        cy
+          .contains("[data-test='product-category']", category)
+          .should("be.visible")
+      );
     });
 
     it("renders a product row", function() {
